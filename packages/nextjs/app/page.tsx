@@ -18,7 +18,7 @@ const Home: NextPage = () => {
 
   const createPost = async () => {
     // Replace this with your actual createPost logic
-    const postcid = await createNewPost(inputValue)
+    const postcid = await createNewPost(inputValue,"Post title")
     setOutputValue("Post IPFS Address: " + postcid.data.Hash); // Store the result in the outputValue state
 
     console.log("Input value:", inputValue);
