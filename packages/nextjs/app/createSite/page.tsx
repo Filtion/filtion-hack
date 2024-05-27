@@ -31,8 +31,8 @@ export default function CreateBlog() {
             />
             <div>
               <button onClick={createPost} className="link">
-                Create Post{" "}
-              </button>{" "}
+                Create Post
+              </button>
               <div className="mt-4">{outputValue && <p>{outputValue}</p>}</div>
             </div>
           </div>

@@ -66,8 +66,6 @@ export const Header = () => {
     useCallback(() => setIsDrawerOpen(false), []),
   );
 
-  console.log(connectedAddress);
-
   return (
     <div
       className={`sticky lg:static top-0 navbar ${
