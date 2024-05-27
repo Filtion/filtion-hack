@@ -29,3 +29,9 @@ export const createNewPost = async body => {
   console.log(response);
   return response;
 };
+
+export const listPosts = async () => {
+  const apiKey = await getApiKey();
+  const response = await lighthouse.getUploads(apiKey);
+ return response
+ };
