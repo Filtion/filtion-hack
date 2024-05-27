@@ -1,63 +1,56 @@
 "use client";
 
+import React from "react";
 import Link from "next/link";
+import placeholder from "../components/assets/placeholder.jpg";
 import type { NextPage } from "next";
 import { useAccount } from "wagmi";
-import { BugAntIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-import { Address } from "~~/components/scaffold-eth";
-import { createNewPost } from "~~/services/web3/signMessage";
-import React, { useState } from 'react';
+import LoginPage from "~~/components/LoginPage";
 
+const testData = [
+  {
+    id: 1,
+    title: "Get your dream destination with our travel guide",
+    category: "Travel",
+    tags: ["travel"],
+    image: placeholder,
+    date: new Date(),
+  },
+] as const;
 
 const Home: NextPage = () => {
   const { address: connectedAddress } = useAccount();
-  const [inputValue, setInputValue] = useState("");
-  const [outputValue, setOutputValue] = useState("");
 
-
-
-  const createPost = async () => {
-    // Replace this with your actual createPost logic
-    const postcid = await createNewPost(inputValue,"Post title")
-    setOutputValue("Post IPFS Address: " + postcid.data.Hash); // Store the result in the outputValue state
-
-    console.log("Input value:", inputValue);
-
-  };
+  if (!connectedAddress) {
+    return <LoginPage />;
+  }
 
   return (
-    <>
-      <div className="flex items-center flex-col flex-grow pt-10">
-
-
-        <div className="flex-grow bg-base-300 w-full mt-16 px-8 py-12">
-          <div className="flex justify-center items-center gap-12 flex-col sm:flex-row">
-
-            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
-              <MagnifyingGlassIcon className="h-8 w-8 fill-secondary" />
-              <input
-                type="text"
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                className="mt-4 p-2 border rounded"
-                placeholder="Post Body"
-              />
-              <div>
-
-                <button onClick={createPost} className="link">
-                  Create Post{" "}
-                </button>{" "}
-                <div className="mt-4">
-                  {outputValue && <p>{outputValue}</p>}
-                </div>
-              </div>
+    <div className="flex flex-col px-14 pt-14 gap-6 flex-grow bg-zinc-900">
+      <div className="flex items-center gap-6 w-2/3 max-w-[900px]">
+        <h1 className="capitalize text-white font-bold text-4xl">My sites</h1>
+        <Link
+          href="/createSite"
+          className="btn btn-sm bg-[#0390FD] text-white border border-[#0390FD] text-xs"
+          type="button"
+        >
+          Create a new site
+        </Link>
+      </div>
+      {testData.map(blog => {
+        return (
+          <div
+            key={blog.id}
+            className="relative w-2/3 max-w-[900px] h-[350px] bg-[url('../components/assets/placeholder.jpg')] bg-cover bg-no-repeat bg-center rounded-lg"
+          >
+            <div className="inline-block absolute top-5 right-5 max-w-[40%]">
+              <p className="bg-white rounded-md m-0 py-1 px-2">{blog.category}</p>
+              <p className="bg-white rounded-md m-0 py-1 px-2 text-xl flex flex-wrap font-bold">{blog.title}</p>
             </div>
           </div>
-        </div>
-
-
-      </div>
-    </>
+        );
+      })}
+    </div>
   );
 };
 

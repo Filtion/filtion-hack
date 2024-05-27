@@ -20,9 +20,9 @@ export const getApiKey = async () => {
   return response.data.apiKey;
 };
 
-export const createNewPost = async (title:string,body:string) => {
+export const createNewPost = async (title: string, body: string) => {
   const apiKey = await getApiKey();
- 
+
   const response = await lighthouse.uploadText(body, apiKey, title);
 
   console.log(response);
@@ -32,5 +32,5 @@ export const createNewPost = async (title:string,body:string) => {
 export const listPosts = async () => {
   const apiKey = await getApiKey();
   const response = await lighthouse.getUploads(apiKey);
- return response
- };
+  return response;
+};
