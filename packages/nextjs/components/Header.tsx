@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import filecoinLogo from "./assets/filecoin-logo.svg";
+import { useAccount } from "wagmi";
 import { Bars3Icon, BugAntIcon } from "@heroicons/react/24/outline";
 import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
 import { useOutsideClick } from "~~/hooks/scaffold-eth";
@@ -57,6 +58,7 @@ export const HeaderMenuLinks = () => {
  * Site header
  */
 export const Header = () => {
+  const { address: connectedAddress } = useAccount();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const burgerMenuRef = useRef<HTMLDivElement>(null);
   useOutsideClick(
@@ -64,8 +66,14 @@ export const Header = () => {
     useCallback(() => setIsDrawerOpen(false), []),
   );
 
+  console.log(connectedAddress);
+
   return (
-    <div className="sticky lg:static top-0 navbar bg-black min-h-0 flex-shrink-0 justify-between z-20 px-0 sm:px-2">
+    <div
+      className={`sticky lg:static top-0 navbar ${
+        connectedAddress ? "bg-zinc-900" : "bg-black"
+      } min-h-0 flex-shrink-0 justify-between z-20 px-0 sm:px-2 h-14`}
+    >
       <div className="navbar-start w-auto lg:w-1/2">
         <div className="lg:hidden dropdown" ref={burgerMenuRef}>
           <label
