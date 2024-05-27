@@ -19,11 +19,11 @@ const testData = [
 ] as const;
 
 const Home: NextPage = () => {
-  // const { address: connectedAddress } = useAccount();
+  const { address: connectedAddress } = useAccount();
 
-  // if (!connectedAddress) {
-  //   return <LoginPage />;
-  // }
+  if (!connectedAddress) {
+    return <LoginPage />;
+  }
 
   return (
     <div className="flex flex-col px-14 pt-14 gap-6 flex-grow bg-zinc-900">
