@@ -2,18 +2,29 @@
 
 import React, { useState } from "react";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-import { createNewPost } from "~~/services/web3/signMessage";
+import { createNewPost, uploadFile } from "~~/services/web3/signMessage";
 
 export default function CreateBlog() {
-  const [inputValue, setInputValue] = useState("");
+  const [bodyValue, setBodyValue] = useState("");
+  const [titleValue, setTitleValue] = useState("");
+  const [tagValue, setTagValue] = useState("");
+  const [fileValue, setFileValue] = useState([]);
+
   const [outputValue, setOutputValue] = useState("");
 
   const createPost = async () => {
     // Replace this with your actual createPost logic
-    const postcid = await createNewPost(inputValue, "Post title");
-    setOutputValue("Post IPFS Address: " + postcid.data.Hash); // Store the result in the outputValue state
 
-    console.log("Input value:", inputValue);
+ 
+    const filecid = await uploadFile(fileValue);
+ 
+    const postcid = await createNewPost({
+      title: titleValue,
+      body: bodyValue,
+      image: filecid?.data.Hash as string,
+      tags: tagValue.split(","),
+    });
+    setOutputValue("Post IPFS Address: " + postcid.data.Hash); // Store the result in the outputValue state
   };
 
   return (
@@ -24,10 +35,26 @@ export default function CreateBlog() {
             <MagnifyingGlassIcon className="h-8 w-8 fill-secondary" />
             <input
               type="text"
-              value={inputValue}
-              onChange={e => setInputValue(e.target.value)}
+              value={titleValue}
+              onChange={e => setTitleValue(e.target.value)}
+              className="mt-4 p-2 border rounded"
+              placeholder="Post Title"
+            />
+            <input
+              type="text"
+              value={bodyValue}
+              onChange={e => setBodyValue(e.target.value)}
               className="mt-4 p-2 border rounded"
               placeholder="Post Body"
+            />
+            <input placeholder="Post Image" onChange={e => setFileValue(e.target.files)} type="file" />
+
+            <input
+              type="text"
+              value={tagValue}
+              onChange={e => setTagValue(e.target.value)}
+              className="mt-4 p-2 border rounded"
+              placeholder="Post Tags comma separated eg. news,economy,crisis"
             />
             <div>
               <button onClick={createPost} className="link">

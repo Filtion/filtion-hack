@@ -3,6 +3,14 @@ import { getAccount, signMessage } from "@wagmi/core";
 import axios from "axios";
 import { wagmiConfig } from "~~/services/web3/wagmiConfig";
 
+type Post = {
+  title: string; // post title, text
+  body: string; // markup text
+  image: string; // one post can contain 1 image, this holds cid, upload image to ipfs to get cid
+  tags: string[]; // tags
+};
+
+let LIGHTHOUSE_API_KEY = "";
 export const getApiKey = async () => {
   const account = await getAccount(wagmiConfig);
 
@@ -12,18 +20,47 @@ export const getApiKey = async () => {
 
   console.log("verificationMessage", verificationMessage);
 
-  const signedmessage = await signMessage(wagmiConfig, { message: verificationMessage });
+  if (LIGHTHOUSE_API_KEY === "") {
+    const signedmessage = await signMessage(wagmiConfig, { message: verificationMessage });
 
-  const response = await lighthouse.getApiKey(account.address as string, signedmessage);
-  console.log("response", response.data.apiKey);
+    const response = await lighthouse.getApiKey(account.address as string, signedmessage);
+    console.log("response", response.data.apiKey);
+    LIGHTHOUSE_API_KEY = response.data.apiKey;
+  }
 
-  return response.data.apiKey;
+  return LIGHTHOUSE_API_KEY;
 };
 
-export const createNewPost = async (title: string, body: string) => {
+export const uploadFile = async file => {
+  const apiKey = await getApiKey();
+  console.log("file", file);
+  let output;
+
+  try {
+    output = await lighthouse.upload(file, apiKey, false, null, null);
+  } catch (e) {
+    console.log(e);
+  }
+  console.log("File Status:", output);
+  /*
+    output:
+      data: {
+        Name: "filename.txt",
+        Size: 88000,
+        Hash: "QmWNmn2gr4ZihNPqaC5oTeePsHvFtkWNpjY3cD6Fd5am1w"
+      }
+    Note: Hash in response is CID.
+  */
+
+  console.log("Visit at https://gateway.lighthouse.storage/ipfs/" + output.data.Hash);
+
+  return output;
+};
+
+export const createNewPost = async (post: Post) => {
   const apiKey = await getApiKey();
 
-  const response = await lighthouse.uploadText(body, apiKey, title);
+  const response = await lighthouse.uploadText(JSON.stringify(post), apiKey, post.title);
 
   console.log(response);
   return response;
