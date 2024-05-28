@@ -9,9 +9,9 @@ export default function CreateSite() {
   const [search, setSearch] = useState<string>("");
 
   return (
-    <div className="relative flex items-center flex-col flex-grow pt-10 bg-zinc-900 pt-32">
+    <div className="relative flex items-center flex-col flex-grow bg-zinc-900 pt-32">
       <div className="flex flex-col gap-6">
-        <h2 className="text-white text-2xl font-bold">Find your unique blog post username</h2>
+        <h2 className="text-white text-3xl font-bold">Find your unique blog post username</h2>
         <div className="flex items-center">
           <input
             type="search"

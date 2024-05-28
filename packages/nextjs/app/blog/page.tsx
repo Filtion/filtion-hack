@@ -1,10 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
+import type { Editor as TipTapEditor } from "@tiptap/core";
+import { Editor } from "novel";
 import { createNewPost, uploadFile } from "~~/services/web3/signMessage";
 
 export default function Blog() {
-  const [bodyValue, setBodyValue] = useState("");
+  const [bodyValue, setBodyValue] = useState<string>("");
   const [titleValue, setTitleValue] = useState("");
   const [tagValue, setTagValue] = useState("");
   const [fileValue, setFileValue] = useState<FileList | null>(null);
@@ -34,22 +36,18 @@ export default function Blog() {
           <h3>blog display</h3>
           <button>Change color</button>
         </div>
-        <div>
-          Edit blog - with Novel package
-          <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
+        <div className="w-full">
+          <Editor
+            defaultValue={{ type: "doc", content: [] }}
+            onDebouncedUpdate={(editor: TipTapEditor | undefined) => setBodyValue(editor?.getHTML() || "")}
+          />
+          {/* <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
             <input
               type="text"
               value={titleValue}
               onChange={e => setTitleValue(e.target.value)}
               className="mt-4 p-2 border rounded"
               placeholder="Post Title"
-            />
-            <input
-              type="text"
-              value={bodyValue}
-              onChange={e => setBodyValue(e.target.value)}
-              className="mt-4 p-2 border rounded"
-              placeholder="Post Body"
             />
             <input placeholder="Post Image" onChange={e => setFileValue(e.target.files)} type="file" />
 
@@ -66,7 +64,7 @@ export default function Blog() {
               </button>
               <div className="mt-4">{outputValue && <p>{outputValue}</p>}</div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
