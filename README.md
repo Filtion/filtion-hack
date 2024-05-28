@@ -1,36 +1,37 @@
 # Filtion
 
-## 🎈 Project Overview
-Filtion is an innovative platform that transcends the limitations of traditional Web 2.0 personal web services such as blogs, Brunch, and Notion, by leveraging Web 3.0 technologies. Through Filtion, users can create and manage their own decentralized personal websites and content spaces.
+Filtion is an innovative platform that surpasses the limitations of personal web services from the Web2 era, such as blogs, Brunch, and Notion, by utilizing Web3 technology. This platform is designed to allow users to create and manage their own websites and writing spaces in a decentralized manner.
 
-## ✨ Key Features and Benefits
+## 📌 Differences Between Web2 and Web3
 
-**1. Decentralized Storage (Using IPFS and FVM)**
- - **IPFS (InterPlanetary File System):** Instead of using centralized servers, data is stored on a distributed network. This significantly enhances data security and stability.
- - **FVM (Filecoin Virtual Machine):** Integrated with IPFS, FVM provides smart contract functionality to automate data storage and management processes, offering economic incentives for data storage.
- - **Data Preservation:** Decentralized storage minimizes the risk of data loss and maintains immutable data records combined with blockchain technology.
- - **Content Accessibility:** Users can find and utilize other content directly within the Filtion platform, eliminating the need to rely on external sites.
+### Limitations of Web2
 
-**2. AI Image Generation (Lilypad)**
- - **Lilypad:** A tool that allows users to generate the images they need using AI, enriching their content.
- - **Image Utilization:** Users can freely use the generated images on their websites or content spaces.
+Traditional Web2 services like blogs, Brunch, and Notion use centralized databases to store and manage data. While these services offer various features and provide convenience to users, they also have several drawbacks:
 
-**3. ENS Domain Usage**
- - **ENS (Ethereum Name Service):** A blockchain-based domain name system that allows users to own unique domain names.
- - **Domain Management:** Users can own their own domains, creating personalized website addresses.
- - **Sharing and Accessibility:** Users can easily share their content with others through their owned domains.
-<br></br>
-## 🎡 Feature Description
+1. **Risk of Data Loss**: If the database is deleted or becomes inaccessible, all the user's stored content can be lost.
+2. **Limited Revenue Structure**: Creators often find it difficult to generate direct revenue from their shared content.
+3. **Privacy Concerns**: Users must continuously provide their personal information to centralized third-party sites, which poses a high risk of personal information being exposed if these sites are hacked.
 
-**1. Personal Site Creation and Management**
- - **User Interface:** An intuitive and user-friendly interface that allows anyone to easily create and manage their website.
- - **Template Provision:** A variety of design templates are provided, enabling users to style their websites as they wish.
- - **Custom Design:** Users can customize templates to create unique website designs.
+### Innovations of Web3
 
-**2. Content Creation and Management**
- - **Writing and Posting:** Users can write and post various types of content such as blog posts, notes, and articles.
- - **Media Uploads:** Users can upload and manage various media files such as images, videos, and audio files.
- - **Tags and Categories:** Content can be categorized and tagged for systematic management and easy navigation for visitors.
+Filtion leverages Web3 technology to address these issues with the following features:
+
+1. **Decentralized Data Storage**: Content is stored on blockchain, ensuring permanent preservation and reducing the risk of data loss, while also enabling transparent information sharing.
+2. **Content Ownership and Revenue Generation**: Creators can generate revenue from their content through various models, including content sharing profits and ownership benefits.
+3. **Decentralized Site Ownership and Management**: Users can create, own, and manage their own decentralized sites instead of relying on centralized third-party platforms. This grants users full control over their digital assets and the freedom to operate without intermediaries.
+
+## ✨ Key Features of Filtion
+
+1. **ENS (Ethereum Name Service) Based Site Creation**: Users can create their own sites through ENS, which converts blockchain addresses into human-readable domain names.
+2. **IPFS (InterPlanetary File System) Storage**: Content created by users is stored on IPFS, a decentralized file storage system that ensures permanent data preservation and easy sharing.
+3. **Content Monetization**: Users can generate revenue from their content through various monetization models supported by Filtion.
+4. **AI Image Generation**: The Lilypad feature provides AI-generated, royalty-free images that users can use to decorate their blogs and for reference.
+
+## 🎡 Goals
+
+Filtion's ultimate goal is to evolve services like blogs, Brunch, and Notion from Web2 to Web3. This will enable users to create their own sites, generate diverse content, store it permanently, share it easily with others, and earn revenue from it.
+
+Through this innovative approach, Filtion aims to offer content creators more autonomy and revenue opportunities, while providing users with a more transparent and stable platform.
 <br></br>
 ## 🛠️ Technical Features
 - **Blockchain and Decentralization**
