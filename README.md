@@ -26,6 +26,7 @@ Filtion leverages Web3 technology to address these issues with the following fea
 2. **IPFS (InterPlanetary File System) Storage**: Content created by users is stored on IPFS, a decentralized file storage system that ensures permanent data preservation and easy sharing.
 3. **Content Monetization**: Users can generate revenue from their content through various monetization models supported by Filtion.
 4. **AI Image Generation**: The Lilypad feature provides AI-generated, royalty-free images that users can use to decorate their blogs and for reference.
+5. **Local Weather Forecasts**: Using WeatherXM's Explorer, users can get an accurate weather forecast directly on their home page. 
 
 ## 🎡 Goals
 
