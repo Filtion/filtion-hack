@@ -26,7 +26,7 @@ Filtion leverages Web3 technology to address these issues with the following fea
 2. **IPFS (InterPlanetary File System) Storage**: Content created by users is stored on IPFS, a decentralized file storage system that ensures permanent data preservation and easy sharing.
 3. **Content Monetization**: Users can generate revenue from their content through various monetization models supported by Filtion.
 4. **AI Image Generation**: The Lilypad feature provides AI-generated, royalty-free images that users can use to decorate their blogs and for reference.
-5. **Local Weather Forecasts**: Using WeatherXM's Explorer, users can get an accurate weather forecast directly on their home page. 
+5. **Local Weather Forecasts**: Using WeatherXM's Explorer, users can get an accurate weather forecast directly on their home page.
 
 ## 🎡 Goals
 
@@ -34,23 +34,28 @@ Filtion's ultimate goal is to evolve services like blogs, Brunch(Korean blog), a
 
 Through this innovative approach, Filtion aims to offer content creators more autonomy and revenue opportunities, while providing users with a more transparent and stable platform.
 <br></br>
+
 ## 🛠️ Technical Features
+
 - **Blockchain and Decentralization**
+
   - **Blockchain Technology:** All data is recorded on the blockchain, ensuring transparency and security.
   - **Decentralized Network:** Data is stored and managed on a distributed network rather than a central server.
 
 - **IPFS and FVM Storage**
+
   - **Data Integrity:** IPFS ensures data is not altered or lost.
   - **FVM Utilization:** FVM executes smart contracts to automate data storage and management, providing economic incentives.
   - **Scalability:** As the network expands, it can store and manage increasing amounts of data.
 
 - **ENS Domains**
+
   - **Unique Domains:** Users can own unique ENS domains for easy access to their sites.
   - **Blockchain-Based Domain Management:** Domain names are managed by blockchain, ensuring secure domain ownership.
 
 - **Security and Privacy**
   - **Data Encryption:** All data is encrypted during transmission and storage.
   - **Privacy Protection:** User personal information and data are thoroughly protected.
-<br></br>
+    <br></br>
 
 Filtion offers a revolutionary platform that allows individuals to create their own websites, manage content securely and efficiently, and share freely, leveraging Web 3.0 technologies. This enables users to experience a new level of digital interaction suited to the Web 3.0 era.
