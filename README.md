@@ -1,12 +1,12 @@
 # Filtion
 
-Filtion is an innovative platform that surpasses the limitations of personal web services from the Web2 era, such as blogs, Brunch, and Notion, by utilizing Web3 technology. This platform is designed to allow users to create and manage their own websites and writing spaces in a decentralized manner.
+Filtion is an innovative platform that surpasses the limitations of personal web services from the Web2 era, such as blogs, Brunch(Korean blog), and Notion, by utilizing Web3 technology. This platform is designed to allow users to create and manage their own websites and writing spaces in a decentralized manner.
 
 ## 📌 Differences Between Web2 and Web3
 
 ### Limitations of Web2
 
-Traditional Web2 services like blogs, Brunch, and Notion use centralized databases to store and manage data. While these services offer various features and provide convenience to users, they also have several drawbacks:
+Traditional Web2 services like blogs, Brunch(Korean blog), and Notion use centralized databases to store and manage data. While these services offer various features and provide convenience to users, they also have several drawbacks:
 
 1. **Risk of Data Loss**: If the database is deleted or becomes inaccessible, all the user's stored content can be lost.
 2. **Limited Revenue Structure**: Creators often find it difficult to generate direct revenue from their shared content.
@@ -26,10 +26,11 @@ Filtion leverages Web3 technology to address these issues with the following fea
 2. **IPFS (InterPlanetary File System) Storage**: Content created by users is stored on IPFS, a decentralized file storage system that ensures permanent data preservation and easy sharing.
 3. **Content Monetization**: Users can generate revenue from their content through various monetization models supported by Filtion.
 4. **AI Image Generation**: The Lilypad feature provides AI-generated, royalty-free images that users can use to decorate their blogs and for reference.
+5. **Local Weather Forecasts**: Using WeatherXM's Explorer, users can get an accurate weather forecast directly on their home page. 
 
 ## 🎡 Goals
 
-Filtion's ultimate goal is to evolve services like blogs, Brunch, and Notion from Web2 to Web3. This will enable users to create their own sites, generate diverse content, store it permanently, share it easily with others, and earn revenue from it.
+Filtion's ultimate goal is to evolve services like blogs, Brunch(Korean blog), and Notion from Web2 to Web3. This will enable users to create their own sites, generate diverse content, store it permanently, share it easily with others, and earn revenue from it.
 
 Through this innovative approach, Filtion aims to offer content creators more autonomy and revenue opportunities, while providing users with a more transparent and stable platform.
 <br></br>
