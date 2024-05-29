@@ -27,44 +27,55 @@ export default function Blog() {
     setOutputValue("Post IPFS Address: " + postcid.data.Hash); // Store the result in the outputValue state
   };
 
+  console.log(outputValue);
+
   return (
     <div className="flex flex-grow flex-col">
-      <div className="bg-zinc-800 h-10 border-b border-zinc-700">Header</div>
+      <div className="bg-zinc-800 border-b border-zinc-700">
+        <button onClick={createPost} className="btn btn-sm bg-[#0390FD] text-white border border-[#0390FD] text-xs m-5">
+          Create Post
+        </button>
+      </div>
       <div className="flex flex-grow">
-        <div className="bg-zinc-800 text-white p-3 w-56">
-          SIDEBAR
-          <h3>blog display</h3>
+        <div className="bg-zinc-800 text-white p-3 min-w-56">
+          <h3>Blog display</h3>
           <button>Change color</button>
-        </div>
-        <div className="w-full">
-          <Editor
-            defaultValue={{ type: "doc", content: [] }}
-            onDebouncedUpdate={(editor: TipTapEditor | undefined) => setBodyValue(editor?.getHTML() || "")}
-          />
-          {/* <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
+          <div className="flex flex-col gap-6">
             <input
               type="text"
               value={titleValue}
               onChange={e => setTitleValue(e.target.value)}
-              className="mt-4 p-2 border rounded"
+              className="mt-4 p-2 border rounded-lg"
               placeholder="Post Title"
             />
-            <input placeholder="Post Image" onChange={e => setFileValue(e.target.files)} type="file" />
-
             <input
               type="text"
               value={tagValue}
               onChange={e => setTagValue(e.target.value)}
-              className="mt-4 p-2 border rounded"
-              placeholder="Post Tags comma separated eg. news,economy,crisis"
+              className="mt-4 p-2 border rounded-lg"
+              placeholder="Add tags to the post, comma separated eg. news,economy,crisis"
             />
-            <div>
-              <button onClick={createPost} className="link">
-                Create Post
-              </button>
-              <div className="mt-4">{outputValue && <p>{outputValue}</p>}</div>
-            </div>
-          </div> */}
+            <input
+              placeholder="Add image"
+              className="mt-4 p-2 border rounded-lg"
+              onChange={e => setFileValue(e.target.files)}
+              type="file"
+            />
+          </div>
+        </div>
+        <div className="w-full">
+          <Editor
+            className="mb-0 w-full"
+            defaultValue={{
+              type: "doc",
+              content: [
+                {
+                  type: "paragraph",
+                },
+              ],
+            }}
+            onDebouncedUpdate={(editor: TipTapEditor | undefined) => setBodyValue(editor?.getHTML() || "")}
+          />
         </div>
       </div>
     </div>
