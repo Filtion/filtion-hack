@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { useAccount } from "wagmi";
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import LoginPage from "~~/components/LoginPage";
@@ -28,6 +29,9 @@ export default function CreateSite() {
               onChange={e => setSearch(e.target.value)}
             />
             {!search && <MagnifyingGlassIcon className="w-4 h-4 z-10 fill-zinc-500 -ml-10" />}
+            <Link href="/blog" className="btn btn-sm bg-[#0390FD] text-white border ml-10 border-[#0390FD] text-xs">
+              Create a blog
+            </Link>
           </div>
         </div>
         <div className="bg-slate-800 py-6 px-8 rounded-lg absolute bottom-14 right-14">

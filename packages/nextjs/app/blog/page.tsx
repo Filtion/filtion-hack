@@ -27,8 +27,6 @@ export default function Blog() {
     setOutputValue("Post IPFS Address: " + postcid.data.Hash); // Store the result in the outputValue state
   };
 
-  console.log(outputValue);
-
   return (
     <div className="flex flex-grow flex-col">
       <div className="bg-zinc-800 border-b border-zinc-700">
@@ -45,14 +43,14 @@ export default function Blog() {
               type="text"
               value={titleValue}
               onChange={e => setTitleValue(e.target.value)}
-              className="mt-4 p-2 border rounded-lg"
+              className="mt-4 p-2 border rounded-lg text-black"
               placeholder="Post Title"
             />
             <input
               type="text"
               value={tagValue}
               onChange={e => setTagValue(e.target.value)}
-              className="mt-4 p-2 border rounded-lg"
+              className="mt-4 p-2 border rounded-lg text-black"
               placeholder="Add tags to the post, comma separated eg. news,economy,crisis"
             />
             <input
