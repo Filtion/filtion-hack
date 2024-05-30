@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Montserrat } from "next/font/google";
+import { Baloo_2 } from "next/font/google";
 import { RainbowKitProvider, darkTheme, lightTheme } from "@rainbow-me/rainbowkit";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useTheme } from "next-themes";
@@ -14,7 +14,7 @@ import { useNativeCurrencyPrice } from "~~/hooks/scaffold-eth";
 import { useGlobalState } from "~~/services/store/store";
 import { wagmiConfig } from "~~/services/web3/wagmiConfig";
 
-const montserrat = Montserrat({ subsets: ["latin"] });
+const baloo = Baloo_2({ subsets: ["latin"] });
 
 const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
   const price = useNativeCurrencyPrice();
@@ -30,7 +30,7 @@ const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
     <>
       <div className="flex flex-col min-h-screen">
         <Header />
-        <main className={`${montserrat.className} relative flex flex-col flex-1`}>{children}</main>
+        <main className={`${baloo.className} relative flex flex-col flex-1`}>{children}</main>
       </div>
       <Toaster />
     </>

@@ -4,7 +4,7 @@ import React, { useCallback, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import filecoinLogo from "./assets/filecoin-logo.svg";
+import filtionLogo from "./assets/filtion_logo.svg";
 import { useAccount } from "wagmi";
 import { Bars3Icon, BugAntIcon } from "@heroicons/react/24/outline";
 import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
@@ -96,7 +96,7 @@ export const Header = () => {
           )}
         </div>
         <Link href="/" passHref className="hidden text-white lg:flex items-center gap-2 ml-4 mr-6 shrink-0">
-          <Image src={filecoinLogo} alt="filecoin logo" width={24} height={24} />
+          <Image src={filtionLogo} height={32} alt="filtion logo" />
         </Link>
       </div>
       <div className="navbar-end flex-grow mr-4">

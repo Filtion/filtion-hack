@@ -75,6 +75,10 @@ module.exports = {
     ],
   },
   theme: {
+    backgroundImage: {
+      search: "url('../public/search_page_bg.png')",
+      wallet: "url('../public/connect_wallet_bg.png')",
+    },
     extend: {
       boxShadow: {
         center: "0 0 12px -2px rgb(0 0 0 / 0.05)",
