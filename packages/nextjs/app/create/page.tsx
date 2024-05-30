@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useAccount } from "wagmi";
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import LoginPage from "~~/components/LoginPage";
