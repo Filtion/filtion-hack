@@ -29,11 +29,8 @@ const Home: NextPage = () => {
     <div className="flex flex-col px-14 pt-14 gap-6 flex-grow bg-zinc-900">
       <div className="flex items-center gap-6 w-2/3 max-w-[900px]">
         <h1 className="capitalize text-white font-bold text-4xl">My posts</h1>
-        <Link href="/create" className="btn btn-sm bg-[#0390FD] text-white border border-[#0390FD] text-xs">
+        <Link href="/search" className="btn btn-sm bg-[#0390FD] text-white border border-[#0390FD] text-xs">
           Create a new post
-        </Link>
-        <Link href="/note" className="btn btn-sm bg-[#0390FD] text-white border border-[#0390FD] text-xs">
-          Create a new note
         </Link>
       </div>
       {testData.map(blog => {
