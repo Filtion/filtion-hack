@@ -32,6 +32,9 @@ const Home: NextPage = () => {
         <Link href="/create" className="btn btn-sm bg-[#0390FD] text-white border border-[#0390FD] text-xs">
           Create a new post
         </Link>
+        <Link href="/note" className="btn btn-sm bg-[#0390FD] text-white border border-[#0390FD] text-xs">
+          Create a new note
+        </Link>
       </div>
       {testData.map(blog => {
         return (

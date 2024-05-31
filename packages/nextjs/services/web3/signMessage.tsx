@@ -1,9 +1,8 @@
+import kavach from "@lighthouse-web3/kavach";
 import lighthouse from "@lighthouse-web3/sdk";
 import { getAccount, signMessage } from "@wagmi/core";
 import axios from "axios";
 import { wagmiConfig } from "~~/services/web3/wagmiConfig";
-import kavach from "@lighthouse-web3/kavach"
-
 
 type Post = {
   title: string; // post title, text
@@ -45,7 +44,6 @@ export const uploadFile = async file => {
   }
   console.log("File Status:", output);
 
-
   console.log("Visit at https://gateway.lighthouse.storage/ipfs/" + output.data.Hash);
 
   return output;
@@ -63,10 +61,10 @@ export const createNewPost = async (post: Post) => {
 export const createNewNote = async (post: Post) => {
   const apiKey = await getApiKey();
   const account = await getAccount(wagmiConfig);
-  console.log("post", post)
+  console.log("post", post);
 
-  const authMessage = await kavach.getAuthMessage(account.address as string)
-  console.log("AuthMessage:", authMessage)
+  const authMessage = await kavach.getAuthMessage(account.address as string);
+  console.log("AuthMessage:", authMessage);
 
   // const signedMessage = await signer.signMessage(authMessage.message)
   // console.log("SignedMessage:", signedMessage)
@@ -74,15 +72,18 @@ export const createNewNote = async (post: Post) => {
   const signedmessage = await signMessage(wagmiConfig, { message: authMessage.message as string });
   let response;
   try {
-    response = await lighthouse.textUploadEncrypted(JSON.stringify({ message: post.body }), apiKey, account.address as string, signedmessage);
-
+    response = await lighthouse.textUploadEncrypted(
+      JSON.stringify({ message: post.body }),
+      apiKey,
+      account.address as string,
+      signedmessage,
+    );
   } catch (e) {
     console.log(e);
-
   }
   console.log(response);
 
-  await decrypt(response.data.Hash as string)
+  await decrypt(response.data.Hash as string);
 
   return response;
 };
@@ -101,39 +102,29 @@ export const listNotes = async () => {
   return encryptedUploads;
 };
 
-
 const signAuthMessage = async () => {
   const account = await getAccount(wagmiConfig);
 
-  const messageRequested = (await lighthouse.getAuthMessage(account.address as string)).data.message
+  const messageRequested = (await lighthouse.getAuthMessage(account.address as string)).data.message;
   const signedMessage = await signMessage(wagmiConfig, { message: messageRequested as string });
-  return signedMessage
-}
+  return signedMessage;
+};
 
-const decrypt = async (cid) => {
-
+export const decrypt = async cid => {
   const account = await getAccount(wagmiConfig);
 
   // Get file encryption key
-  const signedMessage = await signAuthMessage()
-  console.log("decrypt cid", cid)
-  const fileEncryptionKey = await lighthouse.fetchEncryptionKey(
-    cid,
-    account.address,
-    signedMessage
-  )
+  const signedMessage = await signAuthMessage();
+  console.log("decrypt cid", cid);
+  const fileEncryptionKey = await lighthouse.fetchEncryptionKey(cid, account.address, signedMessage);
 
   // Decrypt File
-  const decrypted = await lighthouse.decryptFile(
-    cid,
-    fileEncryptionKey.data.key as string
-  )
+  const decrypted = await lighthouse.decryptFile(cid, fileEncryptionKey.data.key as string);
 
-  console.log(decrypted)
-  const ciddata = await decrypted.text()
-  console.log(ciddata)
-
-
+  console.log(decrypted);
+  const ciddata = await decrypted.text();
+  console.log(ciddata);
+  return ciddata;
 
   // Save File
-}
+};
