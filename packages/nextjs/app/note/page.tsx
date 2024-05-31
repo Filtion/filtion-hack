@@ -92,7 +92,7 @@ export default function Blog() {
                   onClick={() => handleSelectNote(note)}
                   className="btn btn-sm bg-[#0390FD] text-white border border-[#0390FD] text-xs m-5"
                 >
-                  Vie Note
+                  View Note
                 </button>
               </div>
             ))
