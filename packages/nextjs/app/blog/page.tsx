@@ -14,16 +14,19 @@ export default function Blog() {
   const [outputValue, setOutputValue] = useState("");
 
   const createPost = async () => {
-    // Replace this with your actual createPost logic
-
-    const filecid = await uploadFile(fileValue);
-
-    const postcid = await createNewPost({
+    const post:any = {
       title: titleValue,
       body: bodyValue,
-      image: filecid?.data.Hash as string,
       tags: tagValue.split(","),
-    });
+    };
+    let filecid;
+    if (fileValue) {
+      filecid = await uploadFile(fileValue);
+      filecid = filecid?.data.Hash as string;
+      post.image = filecid;
+    }
+
+    const postcid = await createNewPost(post);
     setOutputValue("Post IPFS Address: " + postcid.data.Hash); // Store the result in the outputValue state
   };
 

@@ -2,6 +2,8 @@ import lighthouse from "@lighthouse-web3/sdk";
 import { getAccount, signMessage } from "@wagmi/core";
 import axios from "axios";
 import { wagmiConfig } from "~~/services/web3/wagmiConfig";
+import kavach from "@lighthouse-web3/kavach"
+
 
 type Post = {
   title: string; // post title, text
@@ -42,15 +44,7 @@ export const uploadFile = async file => {
     console.log(e);
   }
   console.log("File Status:", output);
-  /*
-    output:
-      data: {
-        Name: "filename.txt",
-        Size: 88000,
-        Hash: "QmWNmn2gr4ZihNPqaC5oTeePsHvFtkWNpjY3cD6Fd5am1w"
-      }
-    Note: Hash in response is CID.
-  */
+
 
   console.log("Visit at https://gateway.lighthouse.storage/ipfs/" + output.data.Hash);
 
@@ -66,8 +60,80 @@ export const createNewPost = async (post: Post) => {
   return response;
 };
 
+export const createNewNote = async (post: Post) => {
+  const apiKey = await getApiKey();
+  const account = await getAccount(wagmiConfig);
+  console.log("post", post)
+
+  const authMessage = await kavach.getAuthMessage(account.address as string)
+  console.log("AuthMessage:", authMessage)
+
+  // const signedMessage = await signer.signMessage(authMessage.message)
+  // console.log("SignedMessage:", signedMessage)
+
+  const signedmessage = await signMessage(wagmiConfig, { message: authMessage.message as string });
+  let response;
+  try {
+    response = await lighthouse.textUploadEncrypted(JSON.stringify({ message: post.body }), apiKey, account.address as string, signedmessage);
+
+  } catch (e) {
+    console.log(e);
+
+  }
+  console.log(response);
+
+  await decrypt(response.data.Hash as string)
+
+  return response;
+};
+
 export const listPosts = async () => {
   const apiKey = await getApiKey();
   const response = await lighthouse.getUploads(apiKey);
   return response;
 };
+
+export const listNotes = async () => {
+  const apiKey = await getApiKey();
+  const response = await lighthouse.getUploads(apiKey);
+  const encryptedUploads = response.data.fileList.filter(upload => upload.encryption === true);
+
+  return encryptedUploads;
+};
+
+
+const signAuthMessage = async () => {
+  const account = await getAccount(wagmiConfig);
+
+  const messageRequested = (await lighthouse.getAuthMessage(account.address as string)).data.message
+  const signedMessage = await signMessage(wagmiConfig, { message: messageRequested as string });
+  return signedMessage
+}
+
+const decrypt = async (cid) => {
+
+  const account = await getAccount(wagmiConfig);
+
+  // Get file encryption key
+  const signedMessage = await signAuthMessage()
+  console.log("decrypt cid", cid)
+  const fileEncryptionKey = await lighthouse.fetchEncryptionKey(
+    cid,
+    account.address,
+    signedMessage
+  )
+
+  // Decrypt File
+  const decrypted = await lighthouse.decryptFile(
+    cid,
+    fileEncryptionKey.data.key as string
+  )
+
+  console.log(decrypted)
+  const ciddata = await decrypted.text()
+  console.log(ciddata)
+
+
+
+  // Save File
+}
