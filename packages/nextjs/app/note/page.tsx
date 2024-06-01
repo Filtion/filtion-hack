@@ -3,17 +3,12 @@
 import React, { useEffect, useState } from "react";
 import type { Editor as TipTapEditor } from "@tiptap/core";
 import { Editor } from "novel";
-import { createNewNote, decrypt, listNotes, uploadFile } from "~~/services/web3/signMessage";
+import { createNewNote, decrypt, listNotes } from "~~/services/web3/signMessage";
 
 export default function Blog() {
   const [bodyValue, setBodyValue] = useState<string>("");
-  const [titleValue, setTitleValue] = useState("");
-  const [tagValue, setTagValue] = useState("");
-  const [fileValue, setFileValue] = useState<FileList | null>(null);
   const [notes, setNotes] = useState<any[]>([]);
-
-  const [outputValue, setOutputValue] = useState("");
-
+ 
   const handleSelectNote = async (note: any) => {
     console.log("Selected note:", note);
 
@@ -22,21 +17,11 @@ export default function Blog() {
     alert(data);
   };
   const createNote = async () => {
-    const post: any = {
-      title: titleValue,
-      body: bodyValue,
-      tags: tagValue.split(","),
-    };
-    let filecid;
-    if (fileValue) {
-      filecid = await uploadFile(fileValue);
-      filecid = filecid?.data.Hash as string;
-      post.image = filecid;
-    }
+ 
+    
 
-    const postcid = await createNewNote(post);
-    setOutputValue("Post IPFS Address: " + postcid.data.Hash); // Store the result in the outputValue state
-  };
+      await createNewNote(bodyValue);
+   };
 
   const listNote = async () => {
     const notes = await listNotes();
@@ -77,9 +62,6 @@ export default function Blog() {
       </div>
       <div className="bg-zinc-800 border-b border-zinc-700">
         Notes
-        <button onClick={createNote} className="btn btn-sm bg-[#0390FD] text-white border border-[#0390FD] text-xs m-5">
-          Create Note
-        </button>
         <div className="p-3">
           {notes.length > 0 ? (
             notes.map(note => (
@@ -92,7 +74,7 @@ export default function Blog() {
                   onClick={() => handleSelectNote(note)}
                   className="btn btn-sm bg-[#0390FD] text-white border border-[#0390FD] text-xs m-5"
                 >
-                  Vie Note
+                  View Note
                 </button>
               </div>
             ))
