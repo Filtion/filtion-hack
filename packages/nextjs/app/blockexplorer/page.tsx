@@ -12,19 +12,14 @@ const BlockExplorer: NextPage = () => {
   const { blocks, transactionReceipts, currentPage, totalBlocks, setCurrentPage, error } = useFetchBlocks();
   const { targetNetwork } = useTargetNetwork();
   const [isLocalNetwork, setIsLocalNetwork] = useState(true);
-  const [hasError, setHasError] = useState(false);
-
+ 
   useEffect(() => {
     if (targetNetwork.id !== hardhat.id) {
       setIsLocalNetwork(false);
     }
   }, [targetNetwork.id]);
 
-  useEffect(() => {
-    if (targetNetwork.id === hardhat.id && error) {
-      setHasError(true);
-    }
-  }, [targetNetwork.id, error]);
+ 
 
   useEffect(() => {
     if (!isLocalNetwork) {
