@@ -1,59 +1,29 @@
-import React from "react";
+"use client";
 
-const testData = [
-  {
-    title: "Test blog about everything",
-    url: "skitpond/frogmind",
-    date: new Date(),
-  },
-  {
-    title: "How to write a blog?",
-    url: "skitpond/howto",
-    date: new Date(),
-  },
-  {
-    title: "What is a DAO?",
-    url: "skitpond/vamos",
-    date: new Date(),
-  },
-  {
-    title: "Where do we stand on market disruption",
-    url: "disruption",
-    date: new Date(),
-  },
-  {
-    title: "What is Defi?",
-    url: "skitpond/defimain",
-    date: new Date(),
-  },
-  {
-    title: "Test blog about everything",
-    url: "skitpond/frogmind",
-    date: new Date(),
-  },
-  {
-    title: "How to write a blog?",
-    url: "skitpond/howto",
-    date: new Date(),
-  },
-  {
-    title: "What is a DAO?",
-    url: "skitpond/vamos",
-    date: new Date(),
-  },
-  {
-    title: "Where do we stand on market disruption",
-    url: "disruption",
-    date: new Date(),
-  },
-  {
-    title: "What is Defi?",
-    url: "skitpond/defimain",
-    date: new Date(),
-  },
-];
+import React, { useEffect, useState } from "react";
+import { listPosts } from "~~/services/web3/signMessage";
+
+
 
 export default function Overview() {
+  const [posts, setPotes] = useState<any[]>([]);
+
+  const listNote = async () => {
+    const p = await listPosts();
+    console.log(p);
+    setPotes(p);
+  };
+
+  const formatDate = (timestamp: string) => {
+    const date = new Date(timestamp);
+    return date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
+  };
+
+
+
+  useEffect(() => {
+    listNote();
+  }, []);
   return (
     <div className="flex flex-col flex-grow bg-zinc-900 text-white items-center">
       {/* <h2 className="text-xl font-bold">My posts</h2> */}
@@ -68,14 +38,14 @@ export default function Overview() {
           </tr>
         </thead>
         <tbody className="max-w-[900px] w-2/3 text-zinc-300">
-          {testData.map((data, index) => (
+          {posts.map((data, index) => (
             <tr key={index}>
               <td></td>
-              <td className={`${index === 0 ? "pt-8 pb-3" : "py-3"}`}>{data.title}</td>
+              <td className={`${index === 0 ? "pt-8 pb-3" : "py-3"}`}>{data.fileName}</td>
               <td className={`${index === 0 ? "pt-8 pb-3" : "py-3"}`}>
-                <a href={`/${data.url}`}>{data.url}</a>
+                <a href={`https://gateway.lighthouse.storage/ipfs/`+data.cid}>{data.cid}</a>
               </td>
-              <td className={`${index === 0 ? "pt-8 pb-3" : "py-3"}`}>{data.date.toLocaleDateString()}</td>
+              <td className={`${index === 0 ? "pt-8 pb-3" : "py-3"}`}>{formatDate(data.createdAt)}</td>
               <td></td>
             </tr>
           ))}

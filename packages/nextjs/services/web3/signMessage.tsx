@@ -96,7 +96,8 @@ export const createNewNote = async (note: string) => {
 export const listPosts = async () => {
   const apiKey = await getApiKey();
   const response = await lighthouse.getUploads(apiKey);
-  return response;
+  const posts = response.data.fileList.filter(upload => upload.encryption === false);
+  return posts;
 };
 
 export const listNotes = async () => {
