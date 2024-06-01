@@ -11,8 +11,7 @@ export default function Blog() {
   const [tagValue, setTagValue] = useState("");
   const [fileValue, setFileValue] = useState<FileList | null>(null);
 
-  const [outputValue, setOutputValue] = useState("");
-
+ 
   const createPost = async () => {
     const post:any = {
       title: titleValue,
@@ -26,9 +25,8 @@ export default function Blog() {
       post.image = filecid;
     }
 
-    const postcid = await createNewPost(post);
-    setOutputValue("Post IPFS Address: " + postcid.data.Hash); // Store the result in the outputValue state
-  };
+      await createNewPost(post);
+   };
 
   return (
     <div className="flex flex-grow flex-col">

@@ -1,3 +1,4 @@
+/* eslint no-use-before-define: 0 */
 import kavach from "@lighthouse-web3/kavach";
 import lighthouse from "@lighthouse-web3/sdk";
 import { getAccount, signMessage } from "@wagmi/core";
@@ -32,10 +33,16 @@ export const getApiKey = async () => {
   return LIGHTHOUSE_API_KEY;
 };
 
-export const uploadFile = async file => {
+export const uploadFile = async (file:FileList | null) => {
   const apiKey = await getApiKey();
   console.log("file", file);
   let output;
+  // const dealParams = {
+  //   num_copies: 2,
+  //   repair_threshold: 28800,
+  //   renew_threshold: 28800,
+  //   network: 'calibration',
+  // };
 
   try {
     output = await lighthouse.upload(file, apiKey, false, null, null);
@@ -58,10 +65,10 @@ export const createNewPost = async (post: Post) => {
   return response;
 };
 
-export const createNewNote = async (post: Post) => {
+export const createNewNote = async (note: string) => {
   const apiKey = await getApiKey();
   const account = await getAccount(wagmiConfig);
-  console.log("post", post);
+  console.log("post", note);
 
   const authMessage = await kavach.getAuthMessage(account.address as string);
   console.log("AuthMessage:", authMessage);
@@ -73,7 +80,7 @@ export const createNewNote = async (post: Post) => {
   let response;
   try {
     response = await lighthouse.textUploadEncrypted(
-      JSON.stringify({ message: post.body }),
+      JSON.stringify({ message: note }),
       apiKey,
       account.address as string,
       signedmessage,
@@ -81,10 +88,8 @@ export const createNewNote = async (post: Post) => {
   } catch (e) {
     console.log(e);
   }
-  console.log(response);
-
-  await decrypt(response.data.Hash as string);
-
+ 
+ 
   return response;
 };
 
