@@ -8,7 +8,7 @@ import { createNewNote, decrypt, listNotes } from "~~/services/web3/signMessage"
 export default function Blog() {
   const [bodyValue, setBodyValue] = useState<string>("");
   const [notes, setNotes] = useState<any[]>([]);
- 
+
   const handleSelectNote = async (note: any) => {
     console.log("Selected note:", note);
 
@@ -17,11 +17,8 @@ export default function Blog() {
     alert(data);
   };
   const createNote = async () => {
- 
-    
-
-      await createNewNote(bodyValue);
-   };
+    await createNewNote(bodyValue);
+  };
 
   const listNote = async () => {
     const notes = await listNotes();

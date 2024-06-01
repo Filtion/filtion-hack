@@ -3,8 +3,6 @@
 import React, { useEffect, useState } from "react";
 import { listPosts } from "~~/services/web3/signMessage";
 
-
-
 export default function Overview() {
   const [posts, setPotes] = useState<any[]>([]);
 
@@ -16,10 +14,8 @@ export default function Overview() {
 
   const formatDate = (timestamp: string) => {
     const date = new Date(timestamp);
-    return date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
+    return date.toLocaleDateString() + " " + date.toLocaleTimeString();
   };
-
-
 
   useEffect(() => {
     listNote();
@@ -43,7 +39,7 @@ export default function Overview() {
               <td></td>
               <td className={`${index === 0 ? "pt-8 pb-3" : "py-3"}`}>{data.fileName}</td>
               <td className={`${index === 0 ? "pt-8 pb-3" : "py-3"}`}>
-                <a href={`https://gateway.lighthouse.storage/ipfs/`+data.cid}>{data.cid}</a>
+                <a href={`https://gateway.lighthouse.storage/ipfs/` + data.cid}>{data.cid}</a>
               </td>
               <td className={`${index === 0 ? "pt-8 pb-3" : "py-3"}`}>{formatDate(data.createdAt)}</td>
               <td></td>
