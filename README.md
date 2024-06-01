@@ -1,6 +1,9 @@
 # Filtion
 
+![Logo](https://github.com/Filtion/filtion-hack/assets/144579614/9ed6714e-eee5-4062-b3b8-00ec674fb06b)
 Filtion is an innovative platform that surpasses the limitations of personal web services from the Web2 era, such as blogs, Brunch(Korean blog), and Notion, by utilizing Web3 technology. This platform is designed to allow users to create and manage their own websites and writing spaces in a decentralized manner.
+
+[**Platform**](https://billowing-tooth-4753.on.fleek.co/)
 
 ## 📌 Differences Between Web2 and Web3
 
@@ -27,6 +30,7 @@ Filtion leverages Web3 technology to address these issues with the following fea
 3. **Content Monetization**: Users can generate revenue from their content through various monetization models supported by Filtion.
 4. **AI Image Generation**: The Lilypad feature provides AI-generated, royalty-free images that users can use to decorate their blogs and for reference.
 5. **Local Weather Forecasts**: Using WeatherXM's Explorer, users can get an accurate weather forecast directly on their home page.
+6. **Filtion on the Fleek**: Filtion uses Fleek to provide a decentralized execution environment for hosting its Next.js apps.
 
 ## 🎡 Goals
 
@@ -37,23 +41,37 @@ Through this innovative approach, Filtion aims to offer content creators more au
 
 ## 🛠️ Technical Features
 
-- **Blockchain and Decentralization**
+### **Fleek for Next.js App Hosting**
 
-  - **Blockchain Technology:** All data is recorded on the blockchain, ensuring transparency and security.
-  - **Decentralized Network:** Data is stored and managed on a distributed network rather than a central server.
+> Filtion uses Fleek to provide a decentralized execution environment for hosting its Next.js apps. Here’s how Fleek enhances Filtion’s platform:
 
-- **IPFS and FVM Storage**
+  - Decentralized Hosting: By leveraging Fleek, Filtion hosts Next.js applications in a decentralized manner. This ensures higher performance, improved security, and greater reliability compared to traditional centralized hosting solutions.
+  - Edge Functionality: Fleek allows Filtion to utilize Next.js features like image optimization as edge functions, which means these operations are performed closer to the user, resulting in faster load times and a better user experience.
+  - Seamless Integration: Fleek’s platform integrates seamlessly with the decentralized storage solutions used by Filtion, such as IPFS and Filecoin, ensuring a smooth and efficient workflow for deploying and managing content.
 
-  - **Data Integrity:** IPFS ensures data is not altered or lost.
-  - **FVM Utilization:** FVM executes smart contracts to automate data storage and management, providing economic incentives.
-  - **Scalability:** As the network expands, it can store and manage increasing amounts of data.
+### **Decentralized Storage (Filecoin, IPFS, and FVM)**
 
-- **ENS Domains**
+> Filtion addresses traditional Web 2.0 limitations by leveraging decentralized storage technologies:
 
-  - **Unique Domains:** Users can own unique ENS domains for easy access to their sites.
-  - **Blockchain-Based Domain Management:** Domain names are managed by blockchain, ensuring secure domain ownership.
+  - IPFS (InterPlanetary File System): Data is stored on a decentralized network, enhancing security and permanence.
+  - Filecoin: Provides incentivized storage, ensuring that data is permanently available and securely stored.
+  - FVM (Filecoin Virtual Machine): Automates data management with smart contract functionality, providing economic incentives for storage.
 
-- **Security and Privacy**
+### **ENS Domains**
+
+> Filtion utilizes ENS (Ethereum Name Service) to provide users with unique, blockchain-based domain names:
+
+  - Unique Ownership: Users can own and manage their own ENS domains, creating personalized and easily shareable web addresses.
+  - Secure and Transparent: Blockchain-based domain management ensures secure and transparent ownership.
+
+### **Integration of WeatherXM**
+
+> WeatherXM integration enhances user experience with real-time weather data:
+
+  - Real-Time Weather Data: WeatherXM provides accurate and up-to-date weather information.
+  - Enhanced Content: Content creators can use weather data to make their posts more relevant and engaging, particularly for travel, events, and outdoor activities.
+
+### **Security and Privacy**
   - **Data Encryption:** All data is encrypted during transmission and storage.
   - **Privacy Protection:** User personal information and data are thoroughly protected.
     <br></br>
