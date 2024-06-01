@@ -1019,6 +1019,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@lottiefiles/react-lottie-player@npm:^3.5.4":
+  version: 3.5.4
+  resolution: "@lottiefiles/react-lottie-player@npm:3.5.4"
+  dependencies:
+    lottie-web: ^5.12.2
+  peerDependencies:
+    react: 16 - 18
+  checksum: ab779e534f31832315ec8d6369a2da96328dc8273d90fdafae5ee7e270c83e2224de041cd3fff3f8b338829653ec36f44410854c050a0382e66bb758dc820d94
+  languageName: node
+  linkType: hard
+
 "@mapbox/node-pre-gyp@npm:^1.0.5":
   version: 1.0.11
   resolution: "@mapbox/node-pre-gyp@npm:1.0.11"
@@ -11301,6 +11312,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lottie-web@npm:^5.12.2":
+  version: 5.12.2
+  resolution: "lottie-web@npm:5.12.2"
+  checksum: af5bc3bc405fd760de8b17a36158d5a8c3e8c586c711d0c63681ddf056b65bc6b54ea36b1fcad782fb02dbe12e696a40e0ba72daf41b8f10ab5b5d1113793636
+  languageName: node
+  linkType: hard
+
 "loupe@npm:^2.3.6":
   version: 2.3.7
   resolution: "loupe@npm:2.3.7"
@@ -14674,6 +14692,7 @@ __metadata:
   resolution: "se-2@workspace:."
   dependencies:
     "@lighthouse-web3/sdk": ^0.3.3
+    "@lottiefiles/react-lottie-player": ^3.5.4
     husky: ^8.0.1
     lint-staged: ^13.0.3
     novel: 0.1.22
