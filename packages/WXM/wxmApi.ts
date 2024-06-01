@@ -52,6 +52,16 @@ const getDeviceByID = (cellIndex: string, deviceId: string) => {
     .then((response) => response.data)
 }
 
+const postFollowDevice = (deviceId: string) => {
+  return client.post(`/api/v1/me/devices/${deviceId}/follow`)
+}
+
+const getDeviceHistory = (deviceId: string, fromDate:"2024-6-2", toDate:"2024-6-3", exclude:"hourly,daily") => {
+  return client
+  .post(`/api/v1/me/devices/${deviceId}/history`)
+  .then((response) => response.data)
+}
+
 const getDeviceTokens = (deviceId: string) => {
   return client.get(`/api/v1/devices/${deviceId}/rewards`).then((response) => response.data)
 }
@@ -80,5 +90,7 @@ export default {
   getSearchResults,
   resolveDeviceName,
   getDeviceTokens,
-  getRewardTimeline
+  getRewardTimeline,
+  postFollowDevice,
+  getDeviceHistory
 }
