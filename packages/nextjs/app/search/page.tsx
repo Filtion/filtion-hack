@@ -8,7 +8,7 @@ import LoginPage from "~~/components/LoginPage";
 
 const existingPostData = [{ title: "Skipond" }, { title: "Dolores" }, { title: "Lagoblanco" }];
 
-export default function CreateSite() {
+export default function SearchName() {
   const [search, setSearch] = useState<string>("");
   const { address } = useAccount();
 

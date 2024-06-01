@@ -4,7 +4,9 @@ import React, { useCallback, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import chatIcon from "./assets/chat_icon.svg";
 import filtionLogo from "./assets/filtion_logo.svg";
+import plusIcon from "./assets/plus_icon.svg";
 import { useAccount } from "wagmi";
 import { Bars3Icon, BugAntIcon } from "@heroicons/react/24/outline";
 import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
@@ -60,6 +62,7 @@ export const HeaderMenuLinks = () => {
 export const Header = () => {
   const { address: connectedAddress } = useAccount();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const burgerMenuRef = useRef<HTMLDivElement>(null);
   useOutsideClick(
     burgerMenuRef,
@@ -99,7 +102,26 @@ export const Header = () => {
           <Image src={filtionLogo} height={32} alt="filtion logo" />
         </Link>
       </div>
-      <div className="navbar-end flex-grow mr-4">
+      <div className="navbar-end flex-grow mr-4 gap-5">
+        {connectedAddress && (
+          <div className="relative flex gap-5">
+            <button className="cursor-pointer" onClick={() => setMenuOpen(!menuOpen)}>
+              <Image src={plusIcon} height={18} width={18} alt="plus icon" />
+            </button>
+            {menuOpen && (
+              <div
+                className="absolute text-white bg-zinc-900 w-44 rounded-lg p-4 shadow shadow-[#0391fd2f] top-7 right-10"
+                onClick={() => setMenuOpen(false)}
+              >
+                <ul className="flex flex-col text-sm gap-3">
+                  <Link href="/blog">Create blog post</Link>
+                  <Link href="/overview">All content overview</Link>
+                </ul>
+              </div>
+            )}
+            <Image src={chatIcon} height={18} width={18} alt="chat icon" />
+          </div>
+        )}
         <RainbowKitCustomConnectButton />
         <FaucetButton />
       </div>
