@@ -37,23 +37,37 @@ Through this innovative approach, Filtion aims to offer content creators more au
 
 ## 🛠️ Technical Features
 
-- **Blockchain and Decentralization**
+**Fleek for Next.js App Hosting**
 
-  - **Blockchain Technology:** All data is recorded on the blockchain, ensuring transparency and security.
-  - **Decentralized Network:** Data is stored and managed on a distributed network rather than a central server.
+> Filtion uses Fleek to provide a decentralized execution environment for hosting its Next.js apps. Here’s how Fleek enhances Filtion’s platform:
 
-- **IPFS and FVM Storage**
+- Decentralized Hosting: By leveraging Fleek, Filtion hosts Next.js applications in a decentralized manner. This ensures higher performance, improved security, and greater reliability compared to traditional centralized hosting solutions.
+- Edge Functionality: Fleek allows Filtion to utilize Next.js features like image optimization as edge functions, which means these operations are performed closer to the user, resulting in faster load times and a better user experience.
+- Seamless Integration: Fleek’s platform integrates seamlessly with the decentralized storage solutions used by Filtion, such as IPFS and Filecoin, ensuring a smooth and efficient workflow for deploying and managing content.
 
-  - **Data Integrity:** IPFS ensures data is not altered or lost.
-  - **FVM Utilization:** FVM executes smart contracts to automate data storage and management, providing economic incentives.
-  - **Scalability:** As the network expands, it can store and manage increasing amounts of data.
+**Decentralized Storage (Filecoin, IPFS, and FVM)** 
 
-- **ENS Domains**
+> Filtion addresses traditional Web 2.0 limitations by leveraging decentralized storage technologies:
 
-  - **Unique Domains:** Users can own unique ENS domains for easy access to their sites.
-  - **Blockchain-Based Domain Management:** Domain names are managed by blockchain, ensuring secure domain ownership.
+- IPFS (InterPlanetary File System): Data is stored on a decentralized network, enhancing security and permanence.
+- Filecoin: Provides incentivized storage, ensuring that data is permanently available and securely stored.
+- FVM (Filecoin Virtual Machine): Automates data management with smart contract functionality, providing economic incentives for storage.
 
-- **Security and Privacy**
+**ENS Domains**
+
+> Filtion utilizes ENS (Ethereum Name Service) to provide users with unique, blockchain-based domain names:
+
+- Unique Ownership: Users can own and manage their own ENS domains, creating personalized and easily shareable web addresses.
+- Secure and Transparent: Blockchain-based domain management ensures secure and transparent ownership.
+
+**Integration of WeatherXM**
+
+> WeatherXM integration enhances user experience with real-time weather data:
+
+- Real-Time Weather Data: WeatherXM provides accurate and up-to-date weather information.
+- Enhanced Content: Content creators can use weather data to make their posts more relevant and engaging, particularly for travel, events, and outdoor activities.
+
+**Security and Privacy**
   - **Data Encryption:** All data is encrypted during transmission and storage.
   - **Privacy Protection:** User personal information and data are thoroughly protected.
     <br></br>
