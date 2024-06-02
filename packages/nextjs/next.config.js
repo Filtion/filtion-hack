@@ -9,6 +9,7 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  images: { unoptimized: true },
   distDir: "dist",
   output: "export",
   webpack: config => {
