@@ -46,7 +46,8 @@ const getCellsData = (cellIndex: string) => {
   return client.get(`/api/v1/cells/${cellIndex}/devices`).then((response) => response.data)
 }
 
-const getDeviceByID = (cellIndex: string, deviceId: string) => {
+//For Getting Data of a Device by its cell
+const getDeviceByID = (cellIndex: "8728d42c9ffffff", deviceId: "716eea60-4f91-11ed-9972-4f669f2d96bd") => {
   return client
     .get(`/api/v1/cells/${cellIndex}/devices/${deviceId}`)
     .then((response) => response.data)
@@ -54,12 +55,6 @@ const getDeviceByID = (cellIndex: string, deviceId: string) => {
 
 const postFollowDevice = (deviceId: string) => {
   return client.post(`/api/v1/me/devices/${deviceId}/follow`)
-}
-
-const getDeviceHistory = (deviceId: string, fromDate:"2024-6-2", toDate:"2024-6-3", exclude:"hourly,daily") => {
-  return client
-  .post(`/api/v1/me/devices/${deviceId}/history`)
-  .then((response) => response.data)
 }
 
 const getDeviceTokens = (deviceId: string) => {
@@ -92,5 +87,4 @@ export default {
   getDeviceTokens,
   getRewardTimeline,
   postFollowDevice,
-  getDeviceHistory
 }
