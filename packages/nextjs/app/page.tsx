@@ -8,7 +8,7 @@ import Link from "next/link";
 //import getDeviceHistory from "../../WXM/wxmApi";
 import homepageImage from "../components/assets/homepageImage.png";
 import placeholder from "../components/assets/placeholder.jpg";
-import { Player } from "@lottiefiles/react-lottie-player";
+// import { Player } from "@lottiefiles/react-lottie-player";
 import type { NextPage } from "next";
 import { useAccount } from "wagmi";
 import LoginPage from "~~/components/LoginPage";
