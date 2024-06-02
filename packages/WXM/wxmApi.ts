@@ -1,4 +1,6 @@
 import axios from 'axios'
+import * as cityFinder from './cityFinder';
+
 
 const client = axios.create({
   baseURL: ''
@@ -42,12 +44,12 @@ const resolveDeviceName = (deviceName: string) => {
     .then((response) => response.data)
 }
 
-const getCellsData = (cellIndex: string) => {
+const getCellsData = (cellIndex: cityFinder.cellFinal) => {
   return client.get(`/api/v1/cells/${cellIndex}/devices`).then((response) => response.data)
 }
 
 //For Getting Data of a Device by its cell
-const getDeviceByID = (cellIndex: "8728d42c9ffffff", deviceId: "716eea60-4f91-11ed-9972-4f669f2d96bd") => {
+const getDeviceByID = (cellIndex: "", deviceId: "716eea60-4f91-11ed-9972-4f669f2d96bd") => {
   return client
     .get(`/api/v1/cells/${cellIndex}/devices/${deviceId}`)
     .then((response) => response.data)
