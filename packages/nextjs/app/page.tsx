@@ -2,6 +2,12 @@
 
 import React from "react";
 import Link from "next/link";
+<<<<<<< Updated upstream
+=======
+import animations from "../../WXM/assets/animations/index";
+import getCellsData from "../../WXM/wxmApi";
+import homepageImage from "../components/assets/homepageImage.png";
+>>>>>>> Stashed changes
 import placeholder from "../components/assets/placeholder.jpg";
 import type { NextPage } from "next";
 import { useAccount } from "wagmi";
@@ -20,6 +26,16 @@ const testData = [
 
 const Home: NextPage = () => {
   const { address: connectedAddress } = useAccount();
+<<<<<<< Updated upstream
+=======
+  // change weatherTestData for getDeviceHistory()
+  const weatherData = getCellsData;
+  const date = new Date(weatherData.timestamp);
+  const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  const dayOfWeek = days[date.getDay()];
+  const icon = weatherData.icon;
+  const weatherIcon = animations[icon];
+>>>>>>> Stashed changes
 
   if (!connectedAddress) {
     return <LoginPage />;
