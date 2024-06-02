@@ -5,7 +5,7 @@ import { Comic_Neue } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import animations from "../../WXM/assets/animations/index";
-import getDeviceHistory from "../../WXM/wxmApi";
+//import getDeviceHistory from "../../WXM/wxmApi";
 import homepageImage from "../components/assets/homepageImage.png";
 import placeholder from "../components/assets/placeholder.jpg";
 import { Player } from "@lottiefiles/react-lottie-player";
