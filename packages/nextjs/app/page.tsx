@@ -4,7 +4,7 @@ import React from "react";
 import { Comic_Neue } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
-import animations from "../../WXM/assets/animations/index";
+// import animations from "../../WXM/assets/animations/index";
 //import getDeviceHistory from "../../WXM/wxmApi";
 import homepageImage from "../components/assets/homepageImage.png";
 import placeholder from "../components/assets/placeholder.jpg";
@@ -59,8 +59,8 @@ const Home: NextPage = () => {
   const date = new Date(weatherData.timestamp);
   const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   const dayOfWeek = days[date.getDay()];
-  const icon = weatherData.icon;
-  const weatherIcon = animations[icon];
+  // const icon = weatherData.icon;
+  // const weatherIcon = animations[icon];
 
   if (!connectedAddress) {
     return <LoginPage />;
@@ -113,7 +113,7 @@ const Home: NextPage = () => {
                       <div>Wind: {Math.round(weatherData.wind_speed)} mph</div>
                       <div>Precipitation: {weatherData.precipitation}%</div>
                     </div>
-                    <Player src={weatherIcon} autoplay loop style={{ height: "80px", width: "80px" }}></Player>
+                    {/* <Player src={weatherIcon} autoplay loop style={{ height: "80px", width: "80px" }}></Player> */}
                   </div>
                 </div>
               </div>
