@@ -5,7 +5,7 @@ import { Comic_Neue } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import animations from "../../WXM/assets/animations/index";
-import getDeviceHistory from "../../WXM/wxmApi";
+import getCellsData from "../../WXM/wxmApi";
 import homepageImage from "../components/assets/homepageImage.png";
 import placeholder from "../components/assets/placeholder.jpg";
 import { Player } from "@lottiefiles/react-lottie-player";
@@ -55,7 +55,7 @@ const testData = [
 const Home: NextPage = () => {
   const { address: connectedAddress } = useAccount();
   // change weatherTestData for getDeviceHistory()
-  const weatherData = weatherTestData[0].hourly[0];
+  const weatherData = getCellsData;
   const date = new Date(weatherData.timestamp);
   const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   const dayOfWeek = days[date.getDay()];
