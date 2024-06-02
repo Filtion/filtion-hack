@@ -5,7 +5,7 @@ import type { Editor as TipTapEditor } from "@tiptap/core";
 import { Editor } from "novel";
 import { createNewPost, uploadFile } from "~~/services/web3/signMessage";
 
-const colors = ["white", "black", "pink-400", "blue-700", "yellow-300"];
+const colors = ["bg-white", "bg-black", "bg-pink-500", "bg-blue-700", "bg-yellow-300"];
 
 export default function Blog() {
   const [bodyValue, setBodyValue] = useState<string>("");
@@ -46,7 +46,7 @@ export default function Blog() {
             <h4>Background color</h4>
             <div className="flex gap-1 py-4">
               {colors.map((color, i) => (
-                <div key={i} className={`bg-${color} w-4 h-4 rounded-full`} />
+                <div key={i} className={`${color} w-4 h-4 rounded-full`} />
               ))}
             </div>
           </div>
@@ -55,14 +55,14 @@ export default function Blog() {
               type="text"
               value={titleValue}
               onChange={e => setTitleValue(e.target.value)}
-              className="mt-4 p-2 border rounded-lg text-black"
+              className="mt-4 p-2 border rounded-lg text-black bg-white"
               placeholder="Post Title"
             />
             <input
               type="text"
               value={tagValue}
               onChange={e => setTagValue(e.target.value)}
-              className="mt-4 p-2 border rounded-lg text-black"
+              className="mt-4 p-2 border rounded-lg text-black bg-white"
               placeholder="Add tags to the post, comma separated eg. news,economy,crisis"
             />
             <div>
