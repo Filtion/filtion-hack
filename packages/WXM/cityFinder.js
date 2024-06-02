@@ -1,7 +1,7 @@
 import bindings from './h3/bindings'
 
 var geocoder = new google.maps.Geocoder();
-var cityName = "Seattle"; 
+var cityName = string cityName; 
 
 function getCoordinates(cityName, callback) {
     geocoder.geocode({ 'address': cityName }, function(results, status) {
