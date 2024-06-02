@@ -53,8 +53,11 @@ export function ProgressBar() {
     };
 
     const handleMutation: MutationCallback = () => {
+      if (typeof window !== "undefined") {
+
       const anchorElements = document.querySelectorAll("a");
       anchorElements.forEach(anchor => anchor.addEventListener("click", handleAnchorClick));
+      }
     };
 
     const mutationObserver = new MutationObserver(handleMutation);

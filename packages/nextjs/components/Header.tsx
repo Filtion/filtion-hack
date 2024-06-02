@@ -115,9 +115,11 @@ export const Header = () => {
               >
                 <ul className="flex flex-col text-sm gap-3">
                   <Link href="/blog">Create blog post</Link>
-                  <Link href="/note">View Private Notes</Link>
-
                   <Link href="/overview">All content overview</Link>
+                  <Link href="/note">Create private Note</Link>
+                  <Link href="/viewnotes">View All Private Notes</Link>
+
+
                 </ul>
               </div>
             )}
